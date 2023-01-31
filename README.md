@@ -1,6 +1,4 @@
 # Descrição do Projeto
-
-<h1 align="center"> Descrição do Projeto</h1>
 <h3 align="center">Catálogo de Boardgames</h3>
 
 <h4 align="left">Este será o primeiro projeto da mentoria Conquiste Sua Vaga.</p>
