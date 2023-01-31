@@ -1,5 +1,5 @@
 # Descrição do Projeto
-<h3 align="center">Catálogo de Boardgames</h3>
+<h3 align="left">Catálogo de Boardgames</h3>
 
 <h4 align="left">Este será o primeiro projeto da mentoria Conquiste Sua Vaga.</p>
 <h4 align="left">Ele será escrito com a linguagem Python e realizará um catálogo de Boardgames com interface gráfica.</p>
