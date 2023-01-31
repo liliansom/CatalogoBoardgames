@@ -9,3 +9,6 @@ A busca dos dados dos boardgames será realizada no site https://ludopedia.com.b
 
 ## Esboço Inicial do Programa
 ![EstruturaPrograma1](https://user-images.githubusercontent.com/109561962/215834635-c824a2e2-22a3-4302-a1a6-d89cee285913.jpg)
+
+## Andamento do Programa:
+Em Desenvolvimento
