@@ -1,1 +1,25 @@
+## Projeto Base
+- criação da Base do Projeto
+- Busca das informações de cada jogo
+- Inserção dos dados em arquivo separado
+- Criação de tuplas para inserção dos jogos
+
+## Interface Gráfica
+- Criação da Tela
+- Criação do Título
+- Formatação das letras e do fundo
+- Criação dos botões
+    - Adicionar
+    - Procurar
+    - Limpar
+    - Deletar(?)
+- Criação dos espaços
+    - Nome
+    - Classificação Etária
+    - Número de Jogadores
+    - Editora
+    - Descrição do Jogo
+
+## Extras
+- - Imagens ilustrativas
 
