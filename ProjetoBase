@@ -1,27 +1,53 @@
 ## Projeto Base
 OK Criação do repositório no Github
 OK Estruturação do Projeto Base com fotos
-- Busca das informações de cada jogo
-- Inserção dos dados em arquivo separado
-- Criação da Base do Projeto
-- Criação de tuplas para inserção dos jogos
 
-## Interface Gráfica
-- Criação da Tela
-- Criação do Título
-- Formatação das letras e do fundo
-- Criação dos botões
+## Interface Gráfica (Front-End)
+### ARTE
+OK Criação das Telas 
+OK Criação dos Fundos
+OK Formatação das letras e dos fundos
+OK Criação dos botões
+    - Minha Coleção
+    - Adicionar Jogos
     - Adicionar
     - Procurar
     - Limpar
     - Deletar(?)
-- Criação dos espaços
+OK Criação das entradas
     - Nome
     - Classificação Etária
     - Número de Jogadores
     - Editora
     - Descrição do Jogo
 
-## Extras
-- - Imagens ilustrativas
+### CÓDIGO
+- Inserção da Tela
+- Inserção do Fundo
+- Inserção dos botões
+- Inserção das entradas
 
+## Programa (Back-End)
+### Classes
+- Criar Classes Jogos
+    - Criar Defs Procurar
+- Criar Classes Estante
+    - Criar Defs Adicionar
+    - Criar Defs Deletar
+
+### Minha Coleção
+- Criar uma lista dos jogos em 'Minha Coleção'
+
+### Levantamento de Dados
+- Busca das informações de cada jogo
+- Inserção dos dados em arquivo separado
+- Criação da Base do Projeto
+- Criação de tuplas para inserção dos jogos
+
+## Extras
+- Poder adicionar imagens ilustrativas
+
+## Dificuldades
+1) Não consigo retornar minha todas as informações do jogo como lista após ter adicionado o jogo
+2) O programa não está permitindo que os botões fiquem por cima do fundo inserido
+3) Ainda não sei como criar uma nova janela para "Minha Coleção"
