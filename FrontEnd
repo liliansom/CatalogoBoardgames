@@ -1,0 +1,55 @@
+# Todos os termos que possuem acentuação foram traduzidos para o inglês
+import tkinter as tk
+from tkinter import Canvas
+from tkinter import Label
+from tkinter import PhotoImage
+
+# Interface gráfica
+janela = tk.Tk()
+
+janela.geometry("600x500")
+janela.configure(bg = "#9a1818")
+canvas = Canvas(
+    janela,
+    bg = "#9a1818",
+    height = 500,
+    width = 600,
+    bd = 0,
+    highlightthickness = 0,
+    relief = "ridge")
+canvas.place(x = 0, y = 0)
+
+janela.resizable(True, True)
+
+# Background
+Bg1 = PhotoImage(file='Frente/Bg.png')
+bg_imagem = Label(janela, image=Bg1).pack()
+
+
+# Botões
+BtEstante = PhotoImage(file='Frente/BtEstante.png')
+btAdc = tk.Button(image=BtEstante)
+btAdc.pack()
+
+BtAdc = PhotoImage(file='Frente/BtAdicionar.png')
+btAdc = tk.Button(image=BtAdc)
+btAdc.pack()
+
+BtSair = PhotoImage(file='Frente/BtSair.png')
+btSair = tk.Button(image=BtSair)
+btSair.pack()
+
+janela.mainloop()
+
+'''# Entradas
+EntNome = tk.Entry()
+EntNome.pack()
+
+EntIdade = tk.Entry()
+EntIdade.pack()
+
+EntJog = tk.Entry()
+EntJog.pack()
+
+EntDesc = tk.Entry()
+EntDesc.pack()'''
