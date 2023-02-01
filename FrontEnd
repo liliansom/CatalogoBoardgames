@@ -6,50 +6,54 @@ from tkinter import PhotoImage
 
 # Interface gráfica
 janela = tk.Tk()
-
-janela.geometry("600x500")
+janela.title('Catálogo de Boardgames')
+janela.geometry("750x500")
 janela.configure(bg = "#9a1818")
 canvas = Canvas(
     janela,
     bg = "#9a1818",
-    height = 500,
+    height = 700,
     width = 600,
     bd = 0,
     highlightthickness = 0,
     relief = "ridge")
 canvas.place(x = 0, y = 0)
-
 janela.resizable(True, True)
 
-# Background
-Bg1 = PhotoImage(file='Frente/Bg.png')
-bg_imagem = Label(janela, image=Bg1).pack()
+Bg2 = PhotoImage(file = 'CATALOGO/Bg2.png')
+canvas.create_image(350, 250, image=Bg2)
 
-
-# Botões
-BtEstante = PhotoImage(file='Frente/BtEstante.png')
-btAdc = tk.Button(image=BtEstante)
-btAdc.pack()
-
-BtAdc = PhotoImage(file='Frente/BtAdicionar.png')
-btAdc = tk.Button(image=BtAdc)
-btAdc.pack()
-
-BtSair = PhotoImage(file='Frente/BtSair.png')
-btSair = tk.Button(image=BtSair)
-btSair.pack()
-
-janela.mainloop()
-
-'''# Entradas
+# Entradas
 EntNome = tk.Entry()
-EntNome.pack()
+EntNome.place(x=160, y=60, width=550, height=40)
 
 EntIdade = tk.Entry()
-EntIdade.pack()
+EntIdade.place(x=160, y=105, width=550, height=40)
 
 EntJog = tk.Entry()
-EntJog.pack()
+EntJog.place(x=160, y=150, width=550, height=40)
+
+EntJog = tk.Entry()
+EntJog.place(x=160, y=195, width=550, height=40)
 
 EntDesc = tk.Entry()
-EntDesc.pack()'''
+EntDesc.place(x=160, y=240, width=550, height=150)
+
+# Botões
+BtAdicionar = PhotoImage(file='CATALOGO/BtAdicionar.png')
+btAdicionar = tk.Button(image=BtAdicionar )
+btAdicionar.place(x=140, y=430)
+
+BtProcurar = PhotoImage(file='CATALOGO/BtProcurar.png')
+btProcurar = tk.Button(image=BtProcurar)
+btProcurar.place(x=290, y=430)
+
+BtDeletar = PhotoImage(file='CATALOGO/BtDeletar.png')
+btDeletar = tk.Button(image=BtDeletar)
+btDeletar.place(x=440, y=430)
+
+BtLimpar = PhotoImage(file='CATALOGO/BtLimpar.png')
+btLimpar = tk.Button(image=BtLimpar)
+btLimpar.place(x=590, y=430)
+
+janela.mainloop()
