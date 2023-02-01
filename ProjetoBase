@@ -1,6 +1,6 @@
 ## Projeto Base
 OK Criação do repositório no Github
-OK Estruturação do Projeto Base com fotos
+OK Estruturação do Projeto Base com imagens
 
 ## Interface Gráfica (Front-End)
 ### ARTE
@@ -8,14 +8,11 @@ OK Criação das Telas
 OK Criação dos Fundos
 OK Formatação das letras e dos fundos
 OK Criação dos botões
-    - Minha Coleção
-        - Adicionar Jogos à Minha Coleção
-        - Retirar de Minha Coleção
     - Adicionar Jogos
         - Procurar
         - Deletar Jogo
-        - Adicionar Jogos à Minha Coleção
-        - Retirar de Minha Coleção
+        - Adicionar Jogo
+        - Deletar Jogo
 OK Criação das entradas
     - Nome
     - Classificação Etária
@@ -26,8 +23,8 @@ OK Criação das entradas
 ### CÓDIGO
 OK Inserção da Janela
 OK Inserção do Fundo
-* Inserção dos botões
-- Inserção das entradas
+OK Inserção dos botões
+OK Inserção das entradas
 
 ## Programa (Back-End)
 ### Classes
@@ -37,9 +34,6 @@ OK Criar Classes Estante
     OK Criar Defs Adicionar Jogos
     - Criar Defs Deletar
 
-### Minha Coleção
-- Criar uma lista dos jogos em 'Minha Coleção'
-
 ## Dados
 ### Levantamento de Dados
 - Busca das informações de cada jogo
@@ -48,11 +42,8 @@ OK Criar Classes Estante
 ### Banco de Dados
 - Criação de um banco de dados SQL (?)
     - Tabela Jogos
-    - Tabela MeusJogos
 - Inserção dos dados na Tabela Jogos
 
 ## Dificuldades
 1) Não consigo retornar minha todas as informações do jogo como lista após ter adicionado o jogo
-2) O programa não está permitindo que os botões fiquem por cima do fundo inserido
-3) Ainda não sei como criar uma nova janela para "Minha Coleção"
 4) Como fazer um banco de dados SQL e integrá-lo com o programa?
