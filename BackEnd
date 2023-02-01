@@ -1,0 +1,31 @@
+class Jogo:
+    def __init__(self, nome, idade, jogador, desc):
+        self.nome = nome
+        self.idade = idade
+        self.jogador = jogador
+        self.desc = desc
+    def procurar(self):
+        return f'{self.nome} {self.idade} {self.jogador} {self.desc}'
+
+class Estante:
+    jogos = []
+    def adc(self,prateleira):
+        self.jogos.append(prateleira)
+        print('Adicionado à sua lista com sucesso!')
+
+
+# TESTE
+jogo2 = Jogo('Catan',
+                '14+',
+                '2-4 jogadores',
+                'catan é um jogo bblablablalbal')
+
+jogo3 = Jogo('Carcassone',
+                '12+',
+                '2-6 jogadores',
+                'carcassone é um jogo bblablablalbal')
+
+bg = Estante()
+bg.adc(jogo2)
+bg.adc(jogo3)
+
