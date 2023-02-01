@@ -9,11 +9,13 @@ OK Criação dos Fundos
 OK Formatação das letras e dos fundos
 OK Criação dos botões
     - Minha Coleção
+        - Adicionar Jogos à Minha Coleção
+        - Retirar de Minha Coleção
     - Adicionar Jogos
-    - Adicionar
-    - Procurar
-    - Limpar
-    - Deletar(?)
+        - Procurar
+        - Deletar Jogo
+        - Adicionar Jogos à Minha Coleção
+        - Retirar de Minha Coleção
 OK Criação das entradas
     - Nome
     - Classificação Etária
@@ -22,32 +24,35 @@ OK Criação das entradas
     - Descrição do Jogo
 
 ### CÓDIGO
-- Inserção da Tela
-- Inserção do Fundo
-- Inserção dos botões
+OK Inserção da Janela
+OK Inserção do Fundo
+* Inserção dos botões
 - Inserção das entradas
 
 ## Programa (Back-End)
 ### Classes
-- Criar Classes Jogos
-    - Criar Defs Procurar
-- Criar Classes Estante
-    - Criar Defs Adicionar
+OK Criar Classes Jogos
+    OK Criar Defs Procurar
+OK Criar Classes Estante
+    OK Criar Defs Adicionar Jogos
     - Criar Defs Deletar
 
 ### Minha Coleção
 - Criar uma lista dos jogos em 'Minha Coleção'
 
+## Dados
 ### Levantamento de Dados
 - Busca das informações de cada jogo
 - Inserção dos dados em arquivo separado
-- Criação da Base do Projeto
-- Criação de tuplas para inserção dos jogos
 
-## Extras
-- Poder adicionar imagens ilustrativas
+### Banco de Dados
+- Criação de um banco de dados SQL (?)
+    - Tabela Jogos
+    - Tabela MeusJogos
+- Inserção dos dados na Tabela Jogos
 
 ## Dificuldades
 1) Não consigo retornar minha todas as informações do jogo como lista após ter adicionado o jogo
 2) O programa não está permitindo que os botões fiquem por cima do fundo inserido
 3) Ainda não sei como criar uma nova janela para "Minha Coleção"
+4) Como fazer um banco de dados SQL e integrá-lo com o programa?
