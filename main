@@ -1,8 +1,8 @@
-# Todos os termos que possuem acentuação foram traduzidos para o inglês
 import tkinter as tk
 from tkinter import Canvas
 from tkinter import PhotoImage
 import pyodbc
+
 
 # Funcionalidades
 dadosconnect = "Driver={SQL Server};Server=DESKTOP-AB1DE95;Database=BDCatalogo;"
@@ -26,7 +26,6 @@ def limpar():
     EntEdit.delete('0', 'end')
     EntDesc.delete('0', 'end')
 
-
 def deletar():
     if len(EntNome.get()) < 2:
         ##### CAIXA DE TEXTO POP UP
@@ -42,23 +41,17 @@ def procurar():
     if len(EntNome.get()) < 2:
         ##### CAIXA DE TEXTO POP UP
         return
+        
     cursor.execute(f'''
-    SELECT * 
+    SELECT Nome, Idade, Jogadores, Editora, Obs 
     FROM Catalogo 
     WHERE Nome='{EntNome.get()}'
     ''')
-    catlist = cursor.fetchall()
-
-    for Idade, Jogadores, Editora, Obs in catlist:
-        Idade: {Idade}
-        Jogadores: {Jogadores}
-        Editora: {Editora}
-        Obs: {Obs}
-        EntIdade.insert(0, '{}'.format(Idade))
-        EntJog.insert(0, '{}'.format(Jogadores))
-        EntEdit.insert(0, '{}'.format(Editora))
-        EntDesc.insert(0, '{}'.format(Obs))
-    print('Achei!')
+    busca = cursor.fetchone()
+    EntIdade.insert(0, busca[2])
+    EntJog.insert(0, busca[3])
+    EntEdit.insert(0, busca[4])
+    EntDesc.insert(0, busca[5])
 
 
 # Interface gráfica
@@ -113,7 +106,9 @@ BtLimpar = PhotoImage(file='CATALOGO/BtLimpar.png')
 btLimpar = tk.Button(image=BtLimpar, command=limpar)
 btLimpar.place(x=590, y=430)
 
-# FINALIZANDO
 janela.mainloop()
+
+# Fechamento
+
 connection.close()
 cursor.close()
