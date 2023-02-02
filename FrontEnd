@@ -1,26 +1,83 @@
 # Todos os termos que possuem acentuação foram traduzidos para o inglês
 import tkinter as tk
 from tkinter import Canvas
-from tkinter import Label
 from tkinter import PhotoImage
+import pyodbc
+
+# Funcionalidades
+dadosconnect = "Driver={SQL Server};Server=DESKTOP-AB1DE95;Database=BDCatalogo;"
+connection = pyodbc.connect(dadosconnect)
+cursor = connection.cursor()
+
+
+def adicionar():
+    cursor.execute(f'''
+    INSERT INTO Catalogo (Nome, Idade, Jogadores, Editora, Obs)
+    VALUES
+    ('{EntNome.get()}', '{EntIdade.get()}', '{EntJog.get()}', '{EntEdit.get()}', '{EntDesc.get()}')
+    ''')
+    cursor.commit()
+    print('Jogos adicionados com sucesso!')
+
+def limpar():
+    EntNome.delete('0', 'end')
+    EntIdade.delete('0', 'end')
+    EntJog.delete('0', 'end')
+    EntEdit.delete('0', 'end')
+    EntDesc.delete('0', 'end')
+
+
+def deletar():
+    if len(EntNome.get()) < 2:
+        ##### CAIXA DE TEXTO POP UP
+        return
+    cursor.execute(f'''
+    DELETE FROM Catalogo 
+    WHERE Nome='{EntNome.get()}'
+    ''')
+    cursor.commit()
+    print("Jogo deletado do sistema!")
+
+def procurar():
+    if len(EntNome.get()) < 2:
+        ##### CAIXA DE TEXTO POP UP
+        return
+    cursor.execute(f'''
+    SELECT * 
+    FROM Catalogo 
+    WHERE Nome='{EntNome.get()}'
+    ''')
+    catlist = cursor.fetchall()
+
+    for Idade, Jogadores, Editora, Obs in catlist:
+        Idade: {Idade}
+        Jogadores: {Jogadores}
+        Editora: {Editora}
+        Obs: {Obs}
+        EntIdade.insert(0, '{}'.format(Idade))
+        EntJog.insert(0, '{}'.format(Jogadores))
+        EntEdit.insert(0, '{}'.format(Editora))
+        EntDesc.insert(0, '{}'.format(Obs))
+    print('Achei!')
+
 
 # Interface gráfica
 janela = tk.Tk()
 janela.title('Catálogo de Boardgames')
 janela.geometry("750x500")
-janela.configure(bg = "#9a1818")
+janela.configure(bg="#9a1818")
 canvas = Canvas(
     janela,
-    bg = "#9a1818",
-    height = 700,
-    width = 600,
-    bd = 0,
-    highlightthickness = 0,
-    relief = "ridge")
-canvas.place(x = 0, y = 0)
+    bg="#9a1818",
+    height=700,
+    width=600,
+    bd=0,
+    highlightthickness=0,
+    relief="ridge")
+canvas.place(x=0, y=0)
 janela.resizable(True, True)
 
-Bg2 = PhotoImage(file = 'CATALOGO/Bg2.png')
+Bg2 = PhotoImage(file='CATALOGO/Bg2.png')
 canvas.create_image(350, 250, image=Bg2)
 
 # Entradas
@@ -33,27 +90,30 @@ EntIdade.place(x=160, y=105, width=550, height=40)
 EntJog = tk.Entry()
 EntJog.place(x=160, y=150, width=550, height=40)
 
-EntJog = tk.Entry()
-EntJog.place(x=160, y=195, width=550, height=40)
+EntEdit = tk.Entry()
+EntEdit.place(x=160, y=195, width=550, height=40)
 
 EntDesc = tk.Entry()
 EntDesc.place(x=160, y=240, width=550, height=150)
 
 # Botões
 BtAdicionar = PhotoImage(file='CATALOGO/BtAdicionar.png')
-btAdicionar = tk.Button(image=BtAdicionar )
+btAdicionar = tk.Button(image=BtAdicionar, command=adicionar)
 btAdicionar.place(x=140, y=430)
 
 BtProcurar = PhotoImage(file='CATALOGO/BtProcurar.png')
-btProcurar = tk.Button(image=BtProcurar)
+btProcurar = tk.Button(image=BtProcurar, command=procurar)
 btProcurar.place(x=290, y=430)
 
 BtDeletar = PhotoImage(file='CATALOGO/BtDeletar.png')
-btDeletar = tk.Button(image=BtDeletar)
+btDeletar = tk.Button(image=BtDeletar, command=deletar)
 btDeletar.place(x=440, y=430)
 
 BtLimpar = PhotoImage(file='CATALOGO/BtLimpar.png')
-btLimpar = tk.Button(image=BtLimpar)
+btLimpar = tk.Button(image=BtLimpar, command=limpar)
 btLimpar.place(x=590, y=430)
 
+# FINALIZANDO
 janela.mainloop()
+connection.close()
+cursor.close()
