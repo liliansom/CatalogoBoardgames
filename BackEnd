@@ -1,31 +1,30 @@
-class Jogo:
-    def __init__(self, nome, idade, jogador, desc):
-        self.nome = nome
-        self.idade = idade
-        self.jogador = jogador
-        self.desc = desc
-    def procurar(self):
-        return f'{self.nome} {self.idade} {self.jogador} {self.desc}'
+import tkinter as tk
+from tkinter import Canvas
+from tkinter import PhotoImage
+import pyodbc
 
-class Estante:
-    jogos = []
-    def adc(self,prateleira):
-        self.jogos.append(prateleira)
-        print('Adicionado à sua lista com sucesso!')
+####### Funcionalidades
+dadosconexao = ("Driver={SQL Server};Server=DESKTOP-AB1DE95;Database=BDCatalogo;")
+conexao = pyodbc.connect(dadosconexao)
+cursor = conexao.cursor()
+
+def adicionar():
+    cursor.execute(f'''INSERT INTO Catalogo (Nome, Idade, Jogadores, Editora, Obs)
+    VALUES
+    ('{EntNome.get()}', '{EntIdade.get()}', '{EntJog.get()}', '{EntEdit.get()}', '{EntDesc.get()}')
+    ''')
+    cursor.commit()
+    print('Jogos adicionados com sucesso!')
+
+    connection.close()
+    cursor.close()
+
+def deletar():
+    print("Jogo deletado do sistema!")
+
+def procurar():
+    print('Achei!')
 
 
-# TESTE
-jogo2 = Jogo('Catan',
-                '14+',
-                '2-4 jogadores',
-                'catan é um jogo bblablablalbal')
-
-jogo3 = Jogo('Carcassone',
-                '12+',
-                '2-6 jogadores',
-                'carcassone é um jogo bblablablalbal')
-
-bg = Estante()
-bg.adc(jogo2)
-bg.adc(jogo3)
-
+connection.close()
+cursor.close()
