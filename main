@@ -1,8 +1,8 @@
 import tkinter as tk
+import tkinter.ttk
 from tkinter import Canvas
 from tkinter import PhotoImage
 import pyodbc
-
 
 # Funcionalidades
 dadosconnect = "Driver={SQL Server};Server=DESKTOP-AB1DE95;Database=BDCatalogo;"
@@ -11,13 +11,19 @@ cursor = connection.cursor()
 
 
 def adicionar():
+    if len(EntNome.get().strip().upper()) < 1:
+        ##### CAIXA DE TEXTO POP UP
+        return
     cursor.execute(f'''
     INSERT INTO Catalogo (Nome, Idade, Jogadores, Editora, Obs)
     VALUES
-    ('{EntNome.get()}', '{EntIdade.get()}', '{EntJog.get()}', '{EntEdit.get()}', '{EntDesc.get()}')
+    ('{EntNome.get().strip().upper()}',
+    '{EntIdade.get().strip().upper()}',
+    '{EntJog.get().strip().upper()}',
+    '{EntEdit.get().strip().upper()}',
+    '{EntDesc.get().strip().upper()}')
     ''')
     cursor.commit()
-    print('Jogos adicionados com sucesso!')
 
 def limpar():
     EntNome.delete('0', 'end')
@@ -27,34 +33,82 @@ def limpar():
     EntDesc.delete('0', 'end')
 
 def deletar():
-    if len(EntNome.get()) < 2:
+    if len(EntNome.get().strip().upper()) < 2:
         ##### CAIXA DE TEXTO POP UP
         return
     cursor.execute(f'''
     DELETE FROM Catalogo 
-    WHERE Nome='{EntNome.get()}'
+    WHERE Nome='{EntNome.get().strip().upper()}'
     ''')
     cursor.commit()
-    print("Jogo deletado do sistema!")
 
 def procurar():
-    if len(EntNome.get()) < 2:
+    if len(EntNome.get().strip().upper()) < 2:
         ##### CAIXA DE TEXTO POP UP
         return
-        
+
     cursor.execute(f'''
     SELECT Nome, Idade, Jogadores, Editora, Obs 
     FROM Catalogo 
-    WHERE Nome='{EntNome.get()}'
+    WHERE Nome='{EntNome.get().strip().upper()}'
     ''')
-    busca = cursor.fetchone()
-    EntIdade.insert(0, busca[2])
-    EntJog.insert(0, busca[3])
-    EntEdit.insert(0, busca[4])
-    EntDesc.insert(0, busca[5])
 
+    busca = cursor.fetchone()
+    EntNome.delete('0', 'end')
+    EntNome.insert(0, '{}'.format(busca[0]))
+    EntIdade.insert(0, '{} ANOS'.format(busca[1]))
+    EntJog.insert(0, '{} JOGADORES'.format(busca[2]))
+    EntEdit.insert(0, '{}'.format(busca[3]))
+    EntDesc.insert(0, '{}'.format(busca[4]))
+
+def jan2():
+    global Bg3, BtFech, tree
+    janela2 = tk.Toplevel()
+    janela2.title('Catálogo de Boardgames')
+    janela2.geometry("750x500")
+    janela2.configure(bg="#9a1818")
+    canvas1 = Canvas(
+        janela2,
+        bg="#9a1818",
+        height=700,
+        width=600,
+        bd=0,
+        highlightthickness=0,
+        relief="ridge")
+    canvas1.place(x=0, y=0)
+    janela2.resizable(True, True)
+    Bg3 = PhotoImage(file='CatTT/Bg3.png')
+    canvas1.create_image(350, 250, image=Bg3)
+
+    BtFech = PhotoImage(file='CatTT/BtFech.png')
+    btFech = tk.Button(janela2, image=BtFech, command=janela2.destroy)
+    btFech.place(x=590, y=430)
+    # TREE
+    tree = tkinter.ttk.Treeview(janela2, columns=['0','1','2','3','4'], show='headings', height= 10)
+    tree.column('0', width=10)
+    tree.column('1', width=120)
+    tree.column('2', width=80)
+    tree.column('3', width=80)
+    tree.column('4', width=100)
+    tree.column('#0', )
+    tree.heading('0', text='Id')
+    tree.heading('1', text='Nome')
+    tree.heading('2', text='Classificação\nEtária')
+    tree.heading('3', text='Número de\nJogadores')
+    tree.heading('4', text='Editora')
+    tree.place(x=135, y=80, width=600, height=325)
+    busca2 = cursor.execute('''
+    SELECT *
+    FROM Catalogo
+    ORDER BY Id
+    ''')
+    a = cursor.fetchall()
+    cursor.commit()
+    for row in a:
+        tree.insert("", tk.END, values=(row[0],row[1],row[2],row[3],row[4]))
 
 # Interface gráfica
+# Janela 1
 janela = tk.Tk()
 janela.title('Catálogo de Boardgames')
 janela.geometry("750x500")
@@ -68,7 +122,7 @@ canvas = Canvas(
     highlightthickness=0,
     relief="ridge")
 canvas.place(x=0, y=0)
-janela.resizable(True, True)
+janela.resizable(False, False)
 
 Bg2 = PhotoImage(file='CATALOGO/Bg2.png')
 canvas.create_image(350, 250, image=Bg2)
@@ -106,9 +160,13 @@ BtLimpar = PhotoImage(file='CATALOGO/BtLimpar.png')
 btLimpar = tk.Button(image=BtLimpar, command=limpar)
 btLimpar.place(x=590, y=430)
 
+BtCol = PhotoImage(file='CATALOGO/BtCat.png')
+btCol = tk.Button(image=BtCol,command=jan2)
+btCol.place(x=10, y=385)
+
+
 janela.mainloop()
 
 # Fechamento
-
 connection.close()
 cursor.close()
