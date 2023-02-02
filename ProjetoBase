@@ -27,12 +27,11 @@ OK Inserção dos botões
 OK Inserção das entradas
 
 ## Programa (Back-End)
-### Classes
-OK Criar Classes Jogos
-    OK Criar Defs Procurar
-OK Criar Classes Estante
-    OK Criar Defs Adicionar Jogos
-    - Criar Defs Deletar
+###Funcões
+OK Criar Defs Adicionar Jogos
+OK Criar Defs Deletar
+OK Criar Defs Limpar
+- Criar Defs Procurar
 
 ## Dados
 ### Levantamento de Dados
@@ -40,10 +39,13 @@ OK Criar Classes Estante
 - Inserção dos dados em arquivo separado
 
 ### Banco de Dados
-- Criação de um banco de dados SQL (?)
-    - Tabela Jogos
+OK Criação de um banco de dados SQL (?)
 - Inserção dos dados na Tabela Jogos
 
+## Extra
+
+
 ## Dificuldades
-1) Não consigo retornar minha todas as informações do jogo como lista após ter adicionado o jogo
-4) Como fazer um banco de dados SQL e integrá-lo com o programa?
+1) Não consigo puxar os dados do BD e inserir nas respectivas Entrys (Botão Procurar não funciona)
+3) Percebi que o texto não está sendo tratado... o que pode ocasionar uma dificuldade para encontrar o jogo. Como realizar este tratamento?
+2) Como fazer um botão realizar duas funções? (lambda?)
