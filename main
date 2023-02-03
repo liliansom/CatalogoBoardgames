@@ -21,7 +21,7 @@ def adicionar():
     '{EntIdade.get().strip().upper()}',
     '{EntJog.get().strip().upper()}',
     '{EntEdit.get().strip().upper()}',
-    '{EntDesc.get().strip().upper()}')
+    '{EntDesc.get('1.0', 'end')}')
     ''')
     cursor.commit()
 
@@ -30,7 +30,7 @@ def limpar():
     EntIdade.delete('0', 'end')
     EntJog.delete('0', 'end')
     EntEdit.delete('0', 'end')
-    EntDesc.delete('0', 'end')
+    EntDesc.delete('1.0', 'end')
 
 def deletar():
     if len(EntNome.get().strip().upper()) < 2:
@@ -59,7 +59,7 @@ def procurar():
     EntIdade.insert(0, '{} ANOS'.format(busca[1]))
     EntJog.insert(0, '{} JOGADORES'.format(busca[2]))
     EntEdit.insert(0, '{}'.format(busca[3]))
-    EntDesc.insert(0, '{}'.format(busca[4]))
+    EntDesc.insert('1.0', '{}'.format(busca[4]))
 
 def jan2():
     global Bg3, BtFech, tree
@@ -140,33 +140,33 @@ EntJog.place(x=160, y=150, width=550, height=40)
 EntEdit = tk.Entry()
 EntEdit.place(x=160, y=195, width=550, height=40)
 
-EntDesc = tk.Entry()
+EntDesc = tk.Text()
 EntDesc.place(x=160, y=240, width=550, height=150)
 
 # Botões
 BtAdicionar = PhotoImage(file='CATALOGO/BtAdicionar.png')
 btAdicionar = tk.Button(image=BtAdicionar, command=adicionar)
-btAdicionar.place(x=140, y=430)
+btAdicionar.place(x=160, y=430)
 
 BtProcurar = PhotoImage(file='CATALOGO/BtProcurar.png')
 btProcurar = tk.Button(image=BtProcurar, command=procurar)
-btProcurar.place(x=290, y=430)
+btProcurar.place(x=310, y=430)
 
 BtDeletar = PhotoImage(file='CATALOGO/BtDeletar.png')
 btDeletar = tk.Button(image=BtDeletar, command=deletar)
-btDeletar.place(x=440, y=430)
+btDeletar.place(x=460, y=430)
 
 BtLimpar = PhotoImage(file='CATALOGO/BtLimpar.png')
 btLimpar = tk.Button(image=BtLimpar, command=limpar)
-btLimpar.place(x=590, y=430)
+btLimpar.place(x=610, y=430)
 
 BtCol = PhotoImage(file='CATALOGO/BtCat.png')
 btCol = tk.Button(image=BtCol,command=jan2)
-btCol.place(x=10, y=385)
-
+btCol.place(x=20, y=398)
 
 janela.mainloop()
 
 # Fechamento
 connection.close()
 cursor.close()
+
