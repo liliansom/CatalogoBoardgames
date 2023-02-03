@@ -13,7 +13,10 @@ OK Criação dos botões
         - Deletar Jogo
         - Adicionar Jogo
         - Deletar Jogo
+        - Catálogo
+        - Fechar
 OK Criação das entradas
+    - Id
     - Nome
     - Classificação Etária
     - Número de Jogadores
@@ -31,7 +34,7 @@ OK Inserção das entradas
 OK Criar Defs Adicionar Jogos
 OK Criar Defs Deletar
 OK Criar Defs Limpar
-- Criar Defs Procurar
+OK Criar Defs Procurar
 
 ## Dados
 ### Levantamento de Dados
@@ -40,12 +43,15 @@ OK Criar Defs Limpar
 
 ### Banco de Dados
 OK Criação de um banco de dados SQL (?)
-- Inserção dos dados na Tabela Jogos
+OK Criação de uma tabela para armazenamento dos dados
+OK Criação das colunas
+OK Inserção dos dados na Tabela Jogos
 
 ## Extra
-
+OK Criar nova janela
+OK Criar uma tabela na janela 2
 
 ## Dificuldades
-1) Não consigo puxar os dados do BD e inserir nas respectivas Entrys (Botão Procurar não funciona)
-3) Percebi que o texto não está sendo tratado... o que pode ocasionar uma dificuldade para encontrar o jogo. Como realizar este tratamento?
-2) Como fazer um botão realizar duas funções? (lambda?)
+1) Como fazer um botão realizar duas funções? (lambda?)
+2) Ainda faltam os pop-ups de erro das funções...
+3) Não consegui arrumar o heigth da coluna headings da tabela (Treeview)...
