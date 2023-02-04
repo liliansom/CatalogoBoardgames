@@ -92,7 +92,7 @@ def procurar():
         Catalogo 
     WHERE
         Id='{EntId.get()}' OR
-        Nome='{EntNome.get()}' 
+        Nome='{EntNome.get().strip().upper()}' 
     ''')
     busca = cursor.fetchone()
     EntId.delete(
