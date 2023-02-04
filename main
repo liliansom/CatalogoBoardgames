@@ -12,10 +12,10 @@ cursor = connection.cursor()
 
 
 def adicionar():
-    if len(EntNome.get().strip().upper()) < 1:
-        caixa1 = messagebox.showerror(
-            "Erro 1",
-            'Adicione um nome')
+    if len(EntNome.get()) < 1 or len(EntIdade.get()) < 0 or len(EntJog.get()) < 0 or len(EntEdit.get()) < 0:
+        messagebox.showerror(
+            "Erro 2",
+            'Preencha todos os campos')
         return
 
     cursor.execute(f'''
@@ -38,6 +38,9 @@ def adicionar():
 
 
 def limpar():
+    EntId.delete(
+        '0',
+        'end')
     EntNome.delete(
         '0',
         'end')
@@ -56,58 +59,78 @@ def limpar():
 
 
 def deletar():
-    if len(EntNome.get().strip().upper()) < 2:
-        caixa1 = messagebox.showerror(
+    if len(EntId.get()) < 0:
+        messagebox.showerror(
             "Erro 1",
-            'Adicione um nome')
+            'Adicione o Id do jogo...')
         return
 
     cursor.execute(f'''
     DELETE FROM 
         Catalogo 
     WHERE 
-        Nome='{EntNome.get().strip().upper()}' ''')
+        Id='{EntId.get()}' ''')
     cursor.commit()
 
 
 def procurar():
-    if len(EntNome.get().strip().upper()) < 2:
-        caixa1 = messagebox.showerror(
+    if len(EntId.get()) < 0:
+        messagebox.showerror(
             "Erro 1",
-            'Adicionar um nome')
+            'Adicione o Id do jogo...')
         return
 
     cursor.execute(f'''
     SELECT 
-        Nome, 
+        Id,
+        Nome,
         Idade,
         Jogadores,
         Editora,
-        Obs 
+        Obs        
     FROM 
         Catalogo 
     WHERE
-        Nome='{EntNome.get().strip().upper()}' ''')
-
+        Id='{EntId.get()}' OR
+        Nome='{EntNome.get()}' 
+    ''')
     busca = cursor.fetchone()
+    EntId.delete(
+        '0',
+        'end')
     EntNome.delete(
         '0',
         'end')
-    EntNome.insert(
+    EntIdade.delete(
+        '0',
+        'end')
+    EntJog.delete(
+        '0',
+        'end')
+    EntEdit.delete(
+        '0',
+        'end')
+    EntDesc.delete(
+        '1.0',
+        'end')
+    EntId.insert(
         0,
         '{}'.format(busca[0]))
+    EntNome.insert(
+        0,
+        '{}'.format(busca[1]))
     EntIdade.insert(
         0,
-        '{} ANOS'.format(busca[1]))
+        '{} ANOS'.format(busca[2]))
     EntJog.insert(
         0,
-        '{} JOGADORES'.format(busca[2]))
+        '{} JOGADORES'.format(busca[3]))
     EntEdit.insert(
-        0,
-        '{}'.format(busca[3]))
+            0,
+            '{}'.format(busca[4]))
     EntDesc.insert(
         '1.0',
-        '{}'.format(busca[4]))
+        '{}'.format(busca[5]))
 
 
 def jan2():
@@ -153,11 +176,11 @@ def jan2():
             '2',
             '3',
             '4'],
-        show='headings',
-        height=10)
+        show='headings')
+
     tree.column(
         '0',
-        width=10)
+        width=5)
     tree.column(
         '1',
         width=120)
@@ -170,9 +193,6 @@ def jan2():
     tree.column(
         '4',
         width=100)
-    tree.column(
-        '#0',
-        )
     tree.heading(
         '0',
         text='Id')
@@ -181,10 +201,10 @@ def jan2():
         text='Nome')
     tree.heading(
         '2',
-        text='Classificação\nEtária')
+        text='Classificação Etária')
     tree.heading(
         '3',
-        text='Número de\nJogadores')
+        text='Número de Jogadores')
     tree.heading(
         '4',
         text='Editora')
@@ -193,6 +213,7 @@ def jan2():
         y=80,
         width=600,
         height=325)
+
     busca2 = cursor.execute('''
     SELECT 
         *
@@ -209,10 +230,9 @@ def jan2():
                                         row[3],
                                         row[4]))
 
+
 # Interface gráfica
 # Janela 1
-
-
 janela = tk.Tk()
 janela.title('Catálogo de Boardgames')
 janela.geometry("750x500")
@@ -239,40 +259,47 @@ canvas.create_image(
     image=Bg2)
 
 # Entradas
+EntId = tk.Entry()
+EntId.place(
+    x=160,
+    y=70,
+    width=50,
+    height=30)
+
 EntNome = tk.Entry()
 EntNome.place(
-    x=160,
-    y=60,
-    width=550,
-    height=40)
+    x=280,
+    y=70,
+    width=430,
+    height=30)
 
 EntIdade = tk.Entry()
 EntIdade.place(
     x=160,
-    y=105,
+    y=110,
     width=550,
-    height=40)
+    height=30)
 
 EntJog = tk.Entry()
 EntJog.place(
     x=160,
     y=150,
     width=550,
-    height=40)
+    height=30)
 
 EntEdit = tk.Entry()
 EntEdit.place(
     x=160,
-    y=195,
+    y=190,
     width=550,
-    height=40)
+    height=30)
 
 EntDesc = tk.Text()
 EntDesc.place(
     x=160,
-    y=240,
+    y=230,
     width=550,
-    height=150)
+    height=170)
 
 # Botões
 BtAdicionar = PhotoImage(file='CATALOGO/BtAdicionar.png')
