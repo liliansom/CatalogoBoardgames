@@ -100,7 +100,7 @@ def jan2():
     busca2 = cursor.execute('''
     SELECT *
     FROM Catalogo
-    ORDER BY Id
+    ORDER BY Nome
     ''')
     a = cursor.fetchall()
     cursor.commit()
