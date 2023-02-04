@@ -22,6 +22,7 @@ OK Criação das entradas
     - Número de Jogadores
     - Editora
     - Descrição do Jogo
+OK Caixas pop-ups sinalizando erro
 
 ### CÓDIGO
 OK Inserção da Janela
@@ -35,6 +36,7 @@ OK Criar Defs Adicionar Jogos
 OK Criar Defs Deletar
 OK Criar Defs Limpar
 OK Criar Defs Procurar
+OK Organização do código
 
 ## Dados
 ### Levantamento de Dados
@@ -53,5 +55,4 @@ OK Criar uma tabela na janela 2
 
 ## Dificuldades
 1) Como fazer um botão realizar duas funções? (lambda?)
-2) Ainda faltam os pop-ups de erro das funções...
-3) Não consegui arrumar o heigth da coluna headings da tabela (Treeview)...
+2) Não consegui arrumar o heigth da coluna headings da tabela (Treeview)...
