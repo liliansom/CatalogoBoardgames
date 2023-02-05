@@ -52,7 +52,3 @@ OK Inserção dos dados na Tabela Jogos
 ## Extra
 OK Criar nova janela
 OK Criar uma tabela na janela 2
-
-## Dificuldades
-1) Como fazer um botão realizar duas funções? (lambda?)
-2) Não consegui arrumar o heigth da coluna headings da tabela (Treeview)...
