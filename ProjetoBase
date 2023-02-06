@@ -1,13 +1,13 @@
 ## Projeto Base
-:white_check_mark: Criação do repositório no Github
-:white_check_mark: Estruturação do Projeto Base com imagens
+OK Criação do repositório no Github
+OK Estruturação do Projeto Base com imagens
 
 ## Interface Gráfica (Front-End)
 ### ARTE
-:white_check_mark: Criação das Telas 
-:white_check_mark: Criação dos Fundos
-:white_check_mark: Formatação das letras e dos fundos
-:white_check_mark: Criação dos botões
+OK Criação das Telas 
+OK Criação dos Fundos
+OK Formatação das letras e dos fundos
+OK Criação dos botões
     - Adicionar Jogos
         - Procurar
         - Deletar Jogo
@@ -15,40 +15,40 @@
         - Deletar Jogo
         - Catálogo
         - Fechar
-:white_check_mark: Criação das entradas
+OK Criação das entradas
     - Id
     - Nome
     - Classificação Etária
     - Número de Jogadores
     - Editora
     - Descrição do Jogo
-:white_check_mark: Caixas pop-ups sinalizando erro
+OKCaixas pop-ups sinalizando erro
 
 ### CÓDIGO
-:white_check_mark: Inserção da Janela
-:white_check_mark: Inserção do Fundo
-:white_check_mark: Inserção dos botões
-:white_check_mark: Inserção das entradas
+OK Inserção da Janela
+OK Inserção do Fundo
+OK Inserção dos botões
+OK Inserção das entradas
 
 ## Programa (Back-End)
 ###Funcões
-:white_check_mark: Criar Defs Adicionar Jogos
-:white_check_mark: Criar Defs Deletar
-:white_check_mark: Criar Defs Limpar
-:white_check_mark: Criar Defs Procurar
-:white_check_mark: Organização do código
+OK Criar Defs Adicionar Jogos
+OK Criar Defs Deletar
+OK Criar Defs Limpar
+OK Criar Defs Procurar
+OK Organização do código
 
 ## Dados
 ### Levantamento de Dados
-:white_check_mark: Busca das informações de cada jogo
-:white_check_mark: Inserção dos dados em arquivo separado
+OK Busca das informações de cada jogo
+OK Inserção dos dados em arquivo separado
 
 ### Banco de Dados
-:white_check_mark: Criação de um banco de dados SQL (?)
-:white_check_mark: Criação de uma tabela para armazenamento dos dados
-:white_check_mark: Criação das colunas
-:white_check_mark: Inserção dos dados na Tabela Jogos
+OK Criação de um banco de dados SQL (?)
+OK Criação de uma tabela para armazenamento dos dados
+OK Criação das colunas
+OK Inserção dos dados na Tabela Jogos
 
 ## Extra
-:white_check_mark: Criar nova janela
-:white_check_mark: Criar uma tabela na janela 2
+OK Criar nova janela
+OK Criar uma tabela na janela 2
