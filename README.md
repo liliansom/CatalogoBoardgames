@@ -1,6 +1,6 @@
 # Catálogo de Boardgames
 ## Apresentação
-Este é o primeiro projeto realizado para a mentoria Conquiste Sua Vaga, que consiste em um catálogo de boardgames com interface gráfica. <br>
+Este é um projeto que consiste em um catálogo de boardgames com interface gráfica. <br>
 O sistema foi desenvolvido em Python utilizando o recurso de CRUD (Create, Read, Update, Delete).<br>
 O catálogo apresenta informações sobre o nome do jogo, classificação etária, número de jogadores, editora e descrição.<br>
 Os dados dos boardgames foram coletados a partir do site https://ludopedia.com.br/.<br>
