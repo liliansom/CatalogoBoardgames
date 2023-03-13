@@ -10,7 +10,7 @@ dadosconnect = "Driver={SQL Server};Server=DESKTOP-AB1DE95;Database=BDCatalogo;"
 connection = pyodbc.connect(dadosconnect)
 cursor = connection.cursor()
 
-
+# função botão adicionar pessoas
 def adicionar():
     if len(EntNome.get()) < 1 or len(EntIdade.get()) < 0 or len(EntJog.get()) < 0 or len(EntEdit.get()) < 0:
         messagebox.showerror("Erro 2", 'Preencha todos os campos')
@@ -27,7 +27,7 @@ def adicionar():
         '{EntDesc.get('1.0','end')}')''')
     cursor.commit()
 
-
+# função botão limpar
 def limpar():
     EntId.delete('0','end')
     EntNome.delete('0','end')
@@ -36,7 +36,7 @@ def limpar():
     EntEdit.delete('0','end')
     EntDesc.delete('1.0','end')
 
-
+# função botão deletar
 def deletar():
     if len(EntId.get()) < 0:
         messagebox.showerror(
@@ -51,7 +51,7 @@ def deletar():
         Id='{EntId.get()}' ''')
     cursor.commit()
 
-
+# função botão procurar
 def procurar():
     if len(EntId.get()) < 0:
         messagebox.showerror("Erro 1", 'Adicione o Id do jogo...')
@@ -80,7 +80,7 @@ def procurar():
     EntEdit.insert(0, '{}'.format(busca[4]))
     EntDesc.insert('1.0', '{}'.format(busca[5]))
 
-
+# criação da segunda janela front
 def jan2():
     global Bg3, BtFech, tree
     janela2 = tk.Toplevel()
@@ -110,7 +110,7 @@ def jan2():
         image=BtFech,
         command=janela2.destroy)
     btfech.place(x=590, y=430)
-    # TREE
+    # criação da TREE
     tree = tkinter.ttk.Treeview(
         janela2,
         columns=['0', '1', '2', '3', '4'],
@@ -201,6 +201,7 @@ BtCol = PhotoImage(file='CATALOGO/BtCat.png')
 btCol = tk.Button(image=BtCol, command=jan2)
 btCol.place(x=20, y=398)
 
+# rodar o programa
 janela.mainloop()
 
 # Fechamento
